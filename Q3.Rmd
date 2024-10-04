@@ -1,0 +1,15 @@
+---
+title: "HW2"
+author: "Macey Jacobs"
+date: "2024-10-04"
+output: html_document
+---
+
+```{r}
+output <- vector("double", ncol(mtcars))
+for (i in seq_along(mtcars)){
+  output[[i]] <- sd(mtcars[[i]])
+}
+output
+```
+
