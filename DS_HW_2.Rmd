@@ -1,0 +1,68 @@
+---
+title: "DS_HW_2"
+author: "Conor Gillingham"
+date: "2024-10-01"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+tribble( ~x, ~y, ~w, ~z,
+         210, 300, 220, 180,
+         102, 100, 119, 187,
+         176, 175, 188, 173,
+         87, 95, 91, 94,
+         202, 210, 234, 218,
+         110, 122, 131, 128,
+) -> dt
+dt
+```
+
+```{r}
+#1.a
+map_dbl(dt, mean)
+
+map_dbl(dt, sd)
+
+
+map(dt, sqrt)
+
+summary(dt)
+```
+
+```{r}
+#part 2 setup
+df <- c()
+for (val in 1:10000){
+  rexp(5) -> 
+  new_val
+  meanval <- mean(new_val)
+  df <- append(df,new_val)
+  }
+head(df)
+hist(df)
+```
+
+```{r}
+nf <- c()
+map_dbl(1:10000, ~mean(rexp(5,)))
+
+```
+
+```{r}
+
+nf <- replicate(10000, mean(rexp(5,)))
+nf
+```
+
+```{r}
+val <- c(5, 10, 20)
+for (item in val){
+  nf <- replicate(10000, mean(rexp(item,)))
+  hist(nf,
+       main = item)
+}
+  
+
+
+```
