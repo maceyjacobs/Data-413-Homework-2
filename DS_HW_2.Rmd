@@ -1,10 +1,14 @@
 ---
 title: "DS_HW_2"
-author: "Conor Gillingham"
+author: "Conor Gillingham and Macey Jacobs"
 date: "2024-10-01"
 output: html_document
 ---
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,
+                      results = "hide")
+```
+# Question 1
 ```{r}
 library(tidyverse)
 tribble( ~x, ~y, ~w, ~z,
@@ -17,19 +21,24 @@ tribble( ~x, ~y, ~w, ~z,
 ) -> dt
 dt
 ```
-
+## 1a
 ```{r}
-#1.a
 map_dbl(dt, mean)
-
+```
+## 1b
+```{r}
 map_dbl(dt, sd)
-
-
+```
+## 1c
+```{r}
 map(dt, sqrt)
-
+```
+## 1d
+```{r}
 summary(dt)
 ```
-
+# Question 2
+## 2a
 ```{r}
 #part 2 setup
 df <- c()
@@ -42,19 +51,17 @@ for (val in 1:10000){
 head(df)
 hist(df)
 ```
-
+## 2b
 ```{r}
 nf <- c()
 map_dbl(1:10000, ~mean(rexp(5,)))
-
 ```
-
+## 2c
 ```{r}
-
 nf <- replicate(10000, mean(rexp(5,)))
 nf
 ```
-
+# Question 3
 ```{r}
 val <- c(5, 10, 20)
 for (item in val){
@@ -62,7 +69,4 @@ for (item in val){
   hist(nf,
        main = item)
 }
-  
-
-
 ```
